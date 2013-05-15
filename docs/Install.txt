@@ -1,0 +1,15 @@
+-------------------Yuncart 环境要求-----------------------
+php 5.2+（需要gd，mbstring，curl,如果需要使用支付宝，财付通，第三方登录，还需要openssl扩展，curl也需要支持ssl） 
+mysql 5+
+
+如需使用重定向，在文件夹url重定向中有相应web服务器（apache,nginx,iis）的规则
+
+-------------------Yuncart 安装说明-----------------------
+
+下载Yuncart软件，解压后，把upload文件夹上传到网站目录
+
+1，设置安装目录（根目录），data目录写权限。
+
+2，域名解析后，访问http://www.xxx.com，系统判断config.inc.php是否存在，如果不存在，自动跳转到http://www.xxx.com/install/。
+
+3，输入mysql信息，后台管理员信息，安装完成

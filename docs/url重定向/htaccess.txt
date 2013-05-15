@@ -1,0 +1,36 @@
+RewriteEngine On
+#RewriteBase /
+
+RewriteRule ^item-([0-9]+)\.html$	index.php?model=item&action=index&itemid=$1 [QSA,L]
+RewriteRule ^cat-([0-9]+)\.html$	index.php?model=listing&action=index&catid=$1 [QSA,L]
+RewriteRule ^content-([0-9]+)\.html$	index.php?model=content&action=view&contentid=$1 [QSA,L]
+RewriteRule ^page-([0-9]+)\.html$	index.php?model=content&action=page&pageid=$1 [QSA,L]
+
+RewriteRule ^cart\.html$		index.php?model=cart&action=index [QSA,L]
+RewriteRule ^(login|reg|forgetpwd|logout)\.html$	index.php?model=user&action=$1 [QSA,L]
+RewriteRule ^search\.html$		index.php?model=search&action=index [QSA,L]
+
+RewriteRule ^link\.html$		index.php?model=link&action=index [QSA,L]
+RewriteRule ^agree\.html$		index.php?model=front&action=agree [QSA,L]
+RewriteRule ^member\.html$		index.php?model=member&action=index [QSA,L]
+
+RewriteRule ^mytrade\.html$		index.php?model=mytrade&action=index [QSA,L]
+RewriteRule ^myfavor\.html$		index.php?model=favor&action=myfavor [QSA,L]
+RewriteRule ^myfavor-([0-9])+\.html$		index.php?model=favor&action=myfavor&page=$1 [QSA,L]
+
+RewriteRule ^mycoupon\.html$			index.php?model=coupon&action=mycoupon [QSA,L]
+RewriteRule ^mycoupon-([0-9])+\.html$		index.php?model=coupon&action=mycoupon&page=$1 [QSA,L]
+
+RewriteRule ^(pass|info|address)\.html$		index.php?model=member&action=$1 [QSA,L]
+
+RewriteRule ^aftersale\.html$			index.php?model=aftersale&action=trade [QSA,L]
+RewriteRule ^myaftersale\.html$			index.php?model=aftersale&action=my [QSA,L]
+
+RewriteRule ^(myletter|nostock|downprice|mycomprice|mycomment|myqa)\.html$			index.php?model=myservice&action=$1 [QSA,L]
+RewriteRule ^(myletter|nostock|downprice|mycomprice|mycomment|myqa)-([0-9])+\.html$		index.php?model=myservice&action=$1&page=$2 [QSA,L]
+
+
+RewriteRule ^data/etao/FullIndex\.xml$              api.php?model=etao&action=full [QSA,L]
+RewriteRule ^data/etao/IncrementIndex\.xml$         api.php?model=etao&action=increment [QSA,L]
+RewriteRule ^data/etao/SellerCats\.xml$             api.php?model=etao&action=cat [QSA,L]
+RewriteRule ^data/etao/Item/([0-9]+)\.xml$          api.php?model=etao&action=item&itemid=$1 [QSA,L]

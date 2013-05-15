@@ -1,0 +1,36 @@
+location / {
+	root   /www/demo;
+	index  index.php;
+	rewrite ^(.*)/item-([0-9]+)\.html$	$1/index.php?model=item&action=index&itemid=$2 last;
+	rewrite ^(.*)/cat-([0-9]+)\.html$	$1/index.php?model=listing&action=index&catid=$2 last;
+	rewrite ^(.*)/content-([0-9]+)\.html$	$1/index.php?model=content&action=view&contentid=$2 last;
+	rewrite ^(.*)/page-([0-9]+)\.html$	$1/index.php?model=content&action=page&pageid=$2 last;
+
+	rewrite ^(.*)/cart\.html$		$1/index.php?model=cart&action=index last;
+	rewrite ^(.*)/(login|reg|forgetpwd|logout)\.html$	$1/index.php?model=user&action=$2 last;
+	rewrite ^(.*)/search\.html$		$1/index.php?model=search&action=index last;
+
+	rewrite ^(.*)/link\.html$		$1/index.php?model=link&action=index last;
+	rewrite ^(.*)/agree\.html$		$1/index.php?model=front&action=agree last;
+	rewrite ^(.*)/member\.html$		$1/index.php?model=member&action=index last;
+
+	rewrite ^(.*)/mytrade\.html$		$1/index.php?model=mytrade&action=index last;
+	rewrite ^(.*)/myfavor\.html$		$1/index.php?model=favor&action=myfavor last;
+	rewrite ^(.*)/myfavor-([0-9]+)\.html$	$1/index.php?model=favor&action=myfavor&page=$2 last;
+
+	rewrite ^(.*)/mycoupon\.html$		$1/index.php?model=coupon&action=mycoupon last;
+	rewrite ^(.*)/mycoupon-([0-9]+)\.html$	$1/index.php?model=coupon&action=mycoupon&page=$2 last;
+
+	rewrite ^(.*)/(pass|info|address)\.html$	$1/index.php?model=member&action=$2 last;
+
+	rewrite ^(.*)/aftersale\.html$		$1/index.php?model=aftersale&action=trade last;
+	rewrite ^(.*)/myaftersale\.html$	$1/index.php?model=aftersale&action=my last;
+
+	rewrite ^(.*)/(myletter|nostock|downprice|mycomprice|mycomment|myqa)\.html$		$1/index.php?model=myservice&action=$2 last;
+	rewrite ^(.*)/(myletter|nostock|downprice|mycomprice|mycomment|myqa)-([0-9]+)\.html$	$1/index.php?model=myservice&action=$2&page=$3 last;
+
+	rewrite ^(.*)/data/etao/FullIndex\.xml$              $1/api.php?model=etao&action=full last;
+	rewrite ^(.*)/data/etao/IncrementIndex\.xml$         $1/api.php?model=etao&action=increment last;
+	rewrite ^(.*)/data/etao/SellerCats\.xml$             $1/api.php?model=etao&action=cat last;
+	rewrite ^(.*)/data/etao/Item/([0-9]+)\.xml$          $1/api.php?model=etao&action=item&itemid=$2 last;
+}

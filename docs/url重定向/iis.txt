@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <rewrite>
+            <rules>
+               <rule name="商品" stopProcessing="true">
+                    <match url="item-([0-9]+)\.html" />
+                    <action type="Rewrite" url="index.php?model=item&amp;action=index&amp;itemid={R:1}" />
+                </rule>
+		<rule name="类别" stopProcessing="true">
+                    <match url="cat-([0-9]+)\.html" />
+                    <action type="Rewrite" url="index.php?model=listing&amp;action=index&amp;catid={R:1}" />
+                </rule>
+		<rule name="内容" stopProcessing="true">
+                    <match url="content-([0-9]+)\.html" />
+                    <action type="Rewrite" url="index.php?model=content&amp;action=view&amp;contentid={R:1}" />
+                </rule>
+		<rule name="页面" stopProcessing="true">
+                    <match url="page-([0-9]+)\.html" />
+                    <action type="Rewrite" url="index.php?model=content&amp;action=page&amp;pageid={R:1}" />
+                </rule>
+		<rule name="购物车" stopProcessing="true">
+                    <match url="cart\.html" />
+                    <action type="Rewrite" url="index.php?model=cart&amp;action=index" />
+                </rule>
+		<rule name="登录注册忘记密码退出" stopProcessing="true">
+                    <match url="(login|reg|forgetpwd|logout)\.html" />
+                    <action type="Rewrite" url="index.php?model=user&amp;action={R:1}" />
+                </rule>
+
+		<rule name="友链" stopProcessing="true">
+                    <match url="link\.html" />
+                    <action type="Rewrite" url="index.php?model=link&amp;action=index" />
+                </rule>
+		<rule name="协议" stopProcessing="true">
+                    <match url="agree\.html" />
+                    <action type="Rewrite" url="index.php?model=front&amp;action=agree" />
+                </rule>
+		<rule name="会员" stopProcessing="true">
+                    <match url="member\.html" />
+                    <action type="Rewrite" url="index.php?model=member&amp;action=index" />
+                </rule>
+		<rule name="订单" stopProcessing="true">
+                    <match url="mytrade\.html" />
+                    <action type="Rewrite" url="index.php?model=mytrade&amp;action=index" />
+                </rule>
+		<rule name="关注" stopProcessing="true">
+                    <match url="myfavor\.html" />
+                    <action type="Rewrite" url="index.php?model=favor&amp;action=myfavor" />
+                </rule>
+		<rule name="关注分页" stopProcessing="true">
+                    <match url="myfavor-([0-9])+\.html" />
+                    <action type="Rewrite" url="index.php?model=favor&amp;action=myfavor&amp;page={R:1}" />
+                </rule>
+		<rule name="优惠券" stopProcessing="true">
+                    <match url="mycoupon\.html" />
+                    <action type="Rewrite" url="index.php?model=coupon&amp;action=mycoupon" />
+                </rule>
+		<rule name="优惠券分页" stopProcessing="true">
+                    <match url="mycoupon-([0-9])+\.html" />
+                    <action type="Rewrite" url="index.php?model=coupon&amp;action=mycoupon&amp;page={R:1}" />
+                </rule>
+		<rule name="个人信息" stopProcessing="true">
+                    <match url="(pass|info|address)\.html" />
+                    <action type="Rewrite" url="index.php?model=member&amp;action={R:1}" />
+                </rule>
+		<rule name="我的售后申请" stopProcessing="true">
+                    <match url="myaftersale\.html" />
+                    <action type="Rewrite" url="index.php?model=aftersale&amp;action=my" />
+                </rule>
+		<rule name="售后申请" stopProcessing="true">
+                    <match url="aftersale\.html" />
+                    <action type="Rewrite" url="index.php?model=aftersale&amp;action=trade" />
+                </rule>
+		<rule name="动态" stopProcessing="true">
+                    <match url="(myletter|nostock|downprice|mycomprice|mycomment|myqa)\.html" />
+                    <action type="Rewrite" url="index.php?model=myservice&amp;action={R:1}" />
+                </rule>
+		<rule name="动态分页" stopProcessing="true">
+                    <match url="(myletter|nostock|downprice|mycomprice|mycomment|myqa)-([0-9])+\.html" />
+                    <action type="Rewrite" url="index.php?model=myservice&amp;action={R:1}&amp;page={R:2}" />
+                </rule>
+		<rule name="一淘全量" stopProcessing="true">
+                    <match url="data/etao/FullIndex\.xml" />
+                    <action type="Rewrite" url="api.php?model=etao&amp;action=full" />
+                </rule>
+		<rule name="一淘增量" stopProcessing="true">
+                    <match url="data/etao/IncrementIndex\.xml" />
+                    <action type="Rewrite" url="api.php?model=etao&amp;action=increment" />
+                </rule>
+		<rule name="一淘分类" stopProcessing="true">
+                    <match url="data/etao/SellerCats\.xml" />
+                    <action type="Rewrite" url="api.php?model=etao&amp;action=cat" />
+                </rule>
+		<rule name="一淘商品" stopProcessing="true">
+                    <match url="data/etao/Item/([0-9]+)\.xml" />
+                    <action type="Rewrite" url="api.php?model=etao&amp;action=item&amp;itemid={R:1}" />
+                </rule>
+            </rules>
+        </rewrite>
+    </system.webServer>
+</configuration>
