@@ -1,0 +1,3 @@
+[submodule "gaubee.com"]
+	path = gaubee.com
+	url = https://github.com/Gaubee/gaubee.com.git
